@@ -14,11 +14,11 @@
 
 • ~~Wyświetl całą listę,~~
 
-• Wyświetl listę w odwrotnej kolejności,
+• ~~Wyświetl listę w odwrotnej kolejności,~~
 
-• Wyświetl następny element, ## ???
+• Wyświetl następny element, ???
 
-• Wyświetl poprzedni element, ## ???
+• Wyświetl poprzedni element, ???
 
 • ~~Czyść całą listę,~~
 
