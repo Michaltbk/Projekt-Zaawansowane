@@ -54,6 +54,22 @@ public:
 		}
 	}
 
+	void usunPrzod() {
+		if (!przod) return;
+
+		Powiazanie* temp = przod;
+		if (przod == tyl) {
+			przod = tyl = nullptr;
+		}
+		else {
+			przod = przod->nastepny;
+			przod->poprzedni = nullptr;
+		}
+		delete temp;
+	}
+
+
+
 	void test() {
 		Powiazanie* pierwszy = new Powiazanie(2);
 		Powiazanie* drugi = new Powiazanie(6);
@@ -83,6 +99,12 @@ int main()
 	lista.dodajNaTyl(103);
 
 	lista.wyswietl();
+
+	lista.usunPrzod();
+
+	lista.wyswietl();
+
+
 
 	return 0;
 }
