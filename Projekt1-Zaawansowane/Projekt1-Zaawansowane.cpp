@@ -30,6 +30,18 @@ public:
 		cout<<endl;
 	}
 
+	void dodajNaPrzod(int x) {
+		Powiazanie* nowe = new Powiazanie(x);
+		if (!przod) {
+			przod = tyl = nowe;
+		}
+		else {
+			nowe->nastepny = przod;
+			przod->poprzedni = nowe;
+			przod = nowe;
+		}
+	}
+
 	void test() {
 		Powiazanie* pierwszy = new Powiazanie(2);
 		Powiazanie* drugi = new Powiazanie(6);
@@ -49,6 +61,10 @@ int main()
 	ListaDwuKierunkowa lista;
 
 	lista.test();
+
+	lista.wyswietl();
+
+	lista.dodajNaPrzod(10);
 
 	lista.wyswietl();
 	
