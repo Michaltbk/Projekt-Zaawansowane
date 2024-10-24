@@ -29,12 +29,12 @@ z rozszerzeniem pdf,
 
 • Do projektu dołączyć dokumentację projektową w letex (szablon u prowadzącego),
 
-• Stworzyć konto na GitHub (osoby posiadające konto mogą działać na swoim koncie),
+• ~~Stworzyć konto na GitHub (osoby posiadające konto mogą działać na swoim koncie),~~
 
-• Można zainstalować wtyczkę do Visual Code lub Visual Studio (zależy od środowiska
-z będziecie korzystać),
+• ~~Można zainstalować wtyczkę do Visual Code lub Visual Studio (zależy od środowiska
+z będziecie korzystać),~~
 
-• Używać GitHuba przy pisaniu programu (możesz wypróbować wtyczki przy commitowaniu).
+• ~~Używać GitHuba przy pisaniu programu (możesz wypróbować wtyczki przy commitowaniu).~~
 
 # Github TODO
 • ~~Co najmniej 5 commit’ów,~~
