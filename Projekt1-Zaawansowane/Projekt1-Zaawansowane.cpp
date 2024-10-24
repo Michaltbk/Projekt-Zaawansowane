@@ -32,6 +32,21 @@ public:
 		cout << endl;
 	}
 
+	void wyswietlNaOdwrot() {
+		Powiazanie* aktualny = tyl;
+
+		if (!przod) {
+			cout << "Lista jest pusta." << endl;
+			return;
+		}
+
+		while (aktualny) {
+			cout << aktualny->dane << " ";
+			aktualny = aktualny->poprzedni;
+		}
+		cout << endl;
+	}
+
 	void dodajNaPrzod(int x) {
 		Powiazanie* nowe = new Powiazanie(x);
 		if (!przod) {
@@ -94,6 +109,7 @@ public:
 		}
 	}
 
+	
 	void test() {
 		Powiazanie* pierwszy = new Powiazanie(2);
 		Powiazanie* drugi = new Powiazanie(6);
@@ -112,6 +128,8 @@ int main() {
 	lista.test();
 
 	lista.wyswietl();
+
+	lista.wyswietlNaOdwrot();
 
 	lista.dodajNaPrzod(10);
 
