@@ -9,8 +9,7 @@ struct Powiazanie {
 	Powiazanie(int wartosc) : dane(wartosc), nastepny(nullptr), poprzedni(nullptr) {}
 };
 
-class ListaDwuKierunkowa
-{
+class ListaDwuKierunkowa {
 private:
 	Powiazanie* przod;
 	Powiazanie* tyl;
@@ -18,16 +17,19 @@ private:
 public:
 	ListaDwuKierunkowa() : przod(nullptr), tyl(nullptr) {}
 
-	void wyswietl()
-	{
+	void wyswietl() {
 		Powiazanie* aktualny = przod;
 
-		while (aktualny)
-		{
+		if (!przod) {
+			cout << "Lista jest pusta." << endl;
+			return;
+		}
+
+		while (aktualny) {
 			cout << aktualny->dane << " ";
 			aktualny = aktualny->nastepny;
 		}
-		cout<<endl;
+		cout << endl;
 	}
 
 	void dodajNaPrzod(int x) {
@@ -48,27 +50,43 @@ public:
 			przod = tyl = nowe;
 		}
 		else {
-			nowe->poprzedni = przod;
 			tyl->nastepny = nowe;
+			nowe->poprzedni = tyl;
 			tyl = nowe;
 		}
 	}
 
 	void usunPrzod() {
-		if (!przod) return;
+		if (!przod) return; 
 
-		Powiazanie* temp = przod;
+		Powiazanie* temp = przod; 
 		if (przod == tyl) {
 			przod = tyl = nullptr;
 		}
 		else {
-			przod = przod->nastepny;
-			przod->poprzedni = nullptr;
+			przod = przod->nastepny; 
+			if (przod) { 
+				przod->poprzedni = nullptr; 
+			}
 		}
-		delete temp;
+		delete temp; 
 	}
 
+	void usunTyl() {
+		if (!tyl) return; 
 
+		Powiazanie* temp = tyl; 
+		if (przod == tyl) { 
+			przod = tyl = nullptr;
+		}
+		else {
+			tyl = tyl->poprzedni; 
+			if (tyl) { 
+				tyl->nastepny = nullptr; 
+			}
+		}
+		delete temp; 
+	}
 
 	void test() {
 		Powiazanie* pierwszy = new Powiazanie(2);
@@ -78,35 +96,33 @@ public:
 		drugi->poprzedni = pierwszy;
 
 		przod = pierwszy;
-		tyl =drugi;
+		tyl = drugi;
 	}
-
 };
 
-
-int main()
-{
+int main() {
 	ListaDwuKierunkowa lista;
 
 	lista.test();
 
-	lista.wyswietl();
+	lista.wyswietl(); 
 
 	lista.dodajNaPrzod(10);
 
-	lista.wyswietl();
-	
+	lista.wyswietl(); 
+
 	lista.dodajNaTyl(103);
 
-	lista.wyswietl();
+	lista.wyswietl(); 
 
 	lista.usunPrzod();
 
-	lista.wyswietl();
+	lista.wyswietl(); 
 
+	lista.usunTyl();
+
+	lista.wyswietl(); 
 
 
 	return 0;
 }
-
-
