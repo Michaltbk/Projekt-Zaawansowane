@@ -57,35 +57,41 @@ public:
 	}
 
 	void usunPrzod() {
-		if (!przod) return; 
+		if (!przod) return;
 
-		Powiazanie* temp = przod; 
+		Powiazanie* temp = przod;
 		if (przod == tyl) {
 			przod = tyl = nullptr;
 		}
 		else {
-			przod = przod->nastepny; 
-			if (przod) { 
-				przod->poprzedni = nullptr; 
+			przod = przod->nastepny;
+			if (przod) {
+				przod->poprzedni = nullptr;
 			}
 		}
-		delete temp; 
+		delete temp;
 	}
 
 	void usunTyl() {
-		if (!tyl) return; 
+		if (!tyl) return;
 
-		Powiazanie* temp = tyl; 
-		if (przod == tyl) { 
+		Powiazanie* temp = tyl;
+		if (przod == tyl) {
 			przod = tyl = nullptr;
 		}
 		else {
-			tyl = tyl->poprzedni; 
-			if (tyl) { 
-				tyl->nastepny = nullptr; 
+			tyl = tyl->poprzedni;
+			if (tyl) {
+				tyl->nastepny = nullptr;
 			}
 		}
-		delete temp; 
+		delete temp;
+	}
+
+	void wyczysc() {
+		while (przod) {
+			usunPrzod();
+		}
 	}
 
 	void test() {
@@ -105,23 +111,27 @@ int main() {
 
 	lista.test();
 
-	lista.wyswietl(); 
+	lista.wyswietl();
 
 	lista.dodajNaPrzod(10);
 
-	lista.wyswietl(); 
+	lista.wyswietl();
 
 	lista.dodajNaTyl(103);
 
-	lista.wyswietl(); 
+	lista.wyswietl();
 
 	lista.usunPrzod();
 
-	lista.wyswietl(); 
+	lista.wyswietl();
 
 	lista.usunTyl();
 
-	lista.wyswietl(); 
+	lista.wyswietl();
+
+	lista.wyczysc();
+
+	lista.wyswietl();
 
 
 	return 0;
