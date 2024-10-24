@@ -37,7 +37,7 @@ z będziecie korzystać),
 • Używać GitHuba przy pisaniu programu (możesz wypróbować wtyczki przy commitowaniu).
 
 # Github TODO
-•~~ Co najmniej 5 commit’ów,~~
+•~~Co najmniej 5 commit’ów,~~
 
 • Co najmniej jedno cofnięcie się o dwa commity,
 
