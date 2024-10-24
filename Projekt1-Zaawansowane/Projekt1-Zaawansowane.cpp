@@ -42,6 +42,18 @@ public:
 		}
 	}
 
+	void dodajNaTyl(int x) {
+		Powiazanie* nowe = new Powiazanie(x);
+		if (!tyl) {
+			przod = tyl = nowe;
+		}
+		else {
+			nowe->poprzedni = przod;
+			tyl->nastepny = nowe;
+			tyl = nowe;
+		}
+	}
+
 	void test() {
 		Powiazanie* pierwszy = new Powiazanie(2);
 		Powiazanie* drugi = new Powiazanie(6);
@@ -68,6 +80,9 @@ int main()
 
 	lista.wyswietl();
 	
+	lista.dodajNaTyl(103);
+
+	lista.wyswietl();
 
 	return 0;
 }
