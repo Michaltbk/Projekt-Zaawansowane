@@ -103,6 +103,30 @@ public:
 		delete temp;
 	}
 
+	void dodajPodIndeks(int val, int index) {
+		if (index == 0) {
+			dodajNaPrzod(val);
+			return;
+		}
+
+		Powiazanie* aktualny = przod; 
+		for (int i = 0; i < index - 1; ++i) {
+			if (!aktualny) return;  // Jeśli index jest poza zakresem
+			aktualny = aktualny->nastepny;
+		}
+
+		if (!aktualny || !aktualny->nastepny) {
+			dodajNaTyl(val);
+			return;
+		}
+
+		Powiazanie* nowe = new Powiazanie(val);
+		nowe->nastepny = aktualny->nastepny;
+		nowe->poprzedni = aktualny;
+		aktualny->nastepny->poprzedni = nowe;
+		aktualny->nastepny = nowe;
+	}
+
 	void wyczysc() {
 		while (przod) {
 			usunPrzod();
@@ -151,6 +175,11 @@ int main() {
 
 	lista.wyswietl();
 
+	lista.test();
+
+	lista.dodajPodIndeks(1,1);
+
+	lista.wyswietl();
 
 	return 0;
 }
