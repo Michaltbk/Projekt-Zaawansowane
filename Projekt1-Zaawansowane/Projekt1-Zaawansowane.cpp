@@ -157,6 +157,48 @@ public:
 		delete aktualny;
 	}
 
+	void wyswietlNastepny(int index) {
+		Powiazanie* aktualny = przod;
+
+
+		for (int i = 0; i < index; ++i) {
+			if (!aktualny) {
+				cout << "Indeks " << index << " nie istnieje." << endl;
+				return;
+			}
+			aktualny = aktualny->nastepny;
+		}
+
+
+		if (aktualny && aktualny->nastepny) {
+			cout << "Nastepny element dla indeksu " << index << ": " << aktualny->nastepny->dane << endl;
+		}
+		else {
+			cout << "Brak nastepnego elementu dla indeksu " << index << "." << endl;
+		}
+	}
+
+	void wyswietlPoprzedni(int index) {
+		Powiazanie* aktualny = przod;
+
+
+		for (int i = 0; i < index; ++i) {
+			if (!aktualny) {
+				cout << "Indeks " << index << " nie istnieje." << endl;
+				return;
+			}
+			aktualny = aktualny->nastepny;
+		}
+
+
+		if (aktualny && aktualny->poprzedni) {
+			cout << "Poprzedni element dla indeksu " << index << ": " << aktualny->poprzedni->dane << endl;
+		}
+		else {
+			cout << "Brak poprzedniego elementu dla indeksu " << index << "." << endl;
+		}
+	}
+
 	void wyczysc() {
 		while (przod) {
 			usunPrzod();
@@ -212,6 +254,18 @@ int main() {
 	lista.wyswietl();
 
 	lista.usunIndeks(2);
+
+	lista.wyswietl();
+
+	lista.dodajPodIndeks(7, 0);
+
+	lista.wyswietlNastepny(1);
+
+	lista.wyswietlPoprzedni(1);
+
+	lista.wyswietlNastepny(2);
+
+	lista.wyswietlPoprzedni(2);
 
 	lista.wyswietl();
 
