@@ -109,9 +109,9 @@ public:
 			return;
 		}
 
-		Powiazanie* aktualny = przod; 
+		Powiazanie* aktualny = przod;
 		for (int i = 0; i < index - 1; ++i) {
-			if (!aktualny) return;  // Jeśli index jest poza zakresem
+			if (!aktualny) { cout << "Indeks " << index << " nie istnieje." << endl; return; }  // Jeśli index jest poza zakresem
 			aktualny = aktualny->nastepny;
 		}
 
@@ -127,13 +127,43 @@ public:
 		aktualny->nastepny = nowe;
 	}
 
+	void usunIndeks(int index) {
+		if (index == 0) {
+			usunPrzod();
+			return;
+		}
+
+		Powiazanie* aktualny = przod;
+		for (int i = 0; i < index; ++i) {
+			if (!aktualny->nastepny) {
+				cout << "Indeks " << index << " nie istnieje." << endl;
+				return;
+			}
+			aktualny = aktualny->nastepny;
+		}
+
+		if (!aktualny) {
+			cout << "Indeks " << index << " nie istnieje." << endl;
+			return;
+		}
+
+		if (aktualny == tyl) {
+			usunTyl();
+			return;
+		}
+
+
+
+		delete aktualny;
+	}
+
 	void wyczysc() {
 		while (przod) {
 			usunPrzod();
 		}
 	}
 
-	
+
 	void test() {
 		Powiazanie* pierwszy = new Powiazanie(2);
 		Powiazanie* drugi = new Powiazanie(6);
@@ -177,7 +207,11 @@ int main() {
 
 	lista.test();
 
-	lista.dodajPodIndeks(1,1);
+	lista.dodajPodIndeks(1, 0);
+
+	lista.wyswietl();
+
+	lista.usunIndeks(2);
 
 	lista.wyswietl();
 
