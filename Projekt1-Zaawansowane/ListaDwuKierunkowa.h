@@ -1,7 +1,12 @@
 #pragma once
 #include "Powiazanie.cpp"
+
+/**
+ * @brief Klasa listy dwukierunkowej
+ */
+
 class ListaDwuKierunkowa {
-protected:
+private:
 	Powiazanie* przod;
 	Powiazanie* tyl;
 
