@@ -24,10 +24,10 @@
 
 # Dokumentacja TODO:
 
-• Wygenerować dokumentację automatycznie za pomocą programu „doxygen” do pliku „latex”
-z rozszerzeniem pdf,
+• ~~Wygenerować dokumentację automatycznie za pomocą programu „doxygen” do pliku „latex”
+z rozszerzeniem pdf,~~
 
-• Do projektu dołączyć dokumentację projektową w letex (szablon u prowadzącego),
+• ~~Do projektu dołączyć dokumentację projektową w letex (szablon u prowadzącego),~~
 
 • ~~Stworzyć konto na GitHub (osoby posiadające konto mogą działać na swoim koncie),~~
 
